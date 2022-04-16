@@ -127,6 +127,150 @@ void Jalanan() {
 	
 }
 
+void rumah()
+{
+glPushMatrix();
+
+	glTranslatef(-3,0,0);
+//depan
+	glPushMatrix();
+		glTranslatef(0,0,3);
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.0f,1.0f);
+			glVertex3f(2.0f,0.50f,0.0f);
+			glVertex3f(5.0f,0.50f,0.0f);
+			glVertex3f(5.0f,2.0f,0.0f);
+			glVertex3f(2.0f,2.0f,0.0f);
+		glEnd();
+	glPopMatrix();
+	
+//belakang
+	glPushMatrix();
+		glTranslatef(0,0,0);
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.0f,1.0f);
+			glVertex3f(2.0f,0.50f,0.0f);
+			glVertex3f(5.0f,0.50f,0.0f);
+			glVertex3f(5.0f,2.0f,0.0f);
+			glVertex3f(2.0f,2.0f,0.0f);
+		glEnd();
+	glPopMatrix();
+	
+//kiri
+	glPushMatrix();
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.0f,0.5f);
+			glVertex3f(2.0f,0.50f,0.0f);
+			glVertex3f(2.0f,0.50f,3.0f);
+			glVertex3f(2.0f,2.0f,3.0f);
+			glVertex3f(2.0f,2.0f,0.0f);
+		glEnd();
+	glPopMatrix();
+
+//kanan
+	glPushMatrix();
+		glTranslatef(3,0,0);
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.0f,0.50f);
+			glVertex3f(2.0f,0.50f,0.0f);
+			glVertex3f(2.0f,0.50f,3.0f);
+			glVertex3f(2.0f,2.0f,3.0f);
+			glVertex3f(2.0f,2.0f,0.0f);
+		glEnd();
+	glPopMatrix();
+	
+//atas
+	glPushMatrix();
+		glTranslatef(0,0,0);
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.0f,0.70f);
+			glVertex3f(1.65f,2.0f,-0.350f);
+			glVertex3f(5.35f,2.0f,-0.350f);
+			glVertex3f(5.350f,2.0f,3.350f);
+			glVertex3f(1.65f,2.0f,3.350f);
+		glEnd();
+	glPopMatrix();
+	
+//atap depan
+	glPushMatrix();
+		glTranslatef(0,0,0);
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.5f,0.0f);
+			glVertex3f(5.350f,2.0f,3.350f);
+			glVertex3f(3.5f,3.0f,1.5f);
+			glVertex3f(1.65f,2.0f,3.350f);
+		glEnd();
+	glPopMatrix();
+	
+//atap kanan
+	glPushMatrix();
+		glTranslatef(0,0,0);
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.9f,0.0f);
+			glVertex3f(5.350f,2.0f,3.350f);
+			glVertex3f(3.5f,3.0f,1.5f);
+			glVertex3f(5.35f,2.0f,-0.350f);
+		glEnd();
+	glPopMatrix();
+				
+//atap kiri
+	glPushMatrix();
+		
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.9f,0.0f);
+			glVertex3f(1.65f,2.0f,-0.350f);
+			glVertex3f(3.5f,3.0f,1.5f);
+			glVertex3f(1.65f,2.0f,3.350f);
+		glEnd();
+	glPopMatrix();
+	
+//atap belakang
+	glPushMatrix();
+		glBegin(GL_POLYGON);
+			glColor3f(0.0f,0.9f,0.0f);
+			glVertex3f(1.65f,2.0f,-0.350f);
+			glVertex3f(3.5f,3.0f,1.5f);
+			glVertex3f(5.35f,2.0f,-0.350f);
+		glEnd();
+	glPopMatrix();
+	
+//jendela
+	glPushMatrix();
+		glTranslatef(1.5,0,3.01);
+		glBegin(GL_POLYGON);
+			glColor3f(1.0f,1.0f,0.0f);
+			glVertex3f(2.0f,1.650f,0.0f);
+			glVertex3f(2.50f,1.650f,0.0f);
+			glVertex3f(2.50f,1.0f,0.0f);
+			glVertex3f(2.0f,1.0f,0.0f);
+		glEnd();
+	glPopMatrix();
+				
+//jendela
+	glPushMatrix();
+		glTranslatef(2.2,0,3.01);
+		glBegin(GL_POLYGON);
+			glColor3f(1.0f,1.0f,0.0f);
+			glVertex3f(2.0f,1.650f,0.0f);
+			glVertex3f(2.50f,1.650f,0.0f);
+			glVertex3f(2.50f,1.0f,0.0f);
+			glVertex3f(2.0f,1.0f,0.0f);
+		glEnd();
+	glPopMatrix();
+//pintu
+	glPushMatrix();
+		glTranslatef(0.5,0,3.01);
+		glBegin(GL_POLYGON);
+			glColor3f(1.0f,1.0f,0.0f);
+			glVertex3f(2.0f,1.650f,0.0f);
+			glVertex3f(2.650f,1.650f,0.0f);
+			glVertex3f(2.650f,0.50f,0.0f);
+			glVertex3f(2.0f,0.50f,0.0f);
+		glEnd();
+	glPopMatrix();
+glPopMatrix();
+}
+
 void Langit(){
 	//Belakang
 	glBegin(GL_POLYGON);
