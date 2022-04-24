@@ -1,4 +1,4 @@
-///Nama	: R. Damanhuri
+//Nama	: R. Damanhuri
 //NIM	: 24060120130072
 //Lab	: A2
 //Waktu	: 21 Maret 2022
@@ -11,6 +11,9 @@
 float angle=0.0, deltaAngle = 0.0, ratio;
 float x=60.0f, y=50.0f, z=20.0f; // posisi awal kamera
 float lx=-1.0f,ly=-0.6f,lz=0.0f;
+float tz = -30.0f;
+float posisi = 0.0f;
+int sentuh = 0;
 int deltaMove = 0,h,w;
 int bitmapHeight=12;
 void Reshape(int w1, int h1){
@@ -69,15 +72,15 @@ void cylinder(float alas,float atas,float tinggi)
 void Jalanan() {
 // Fungsi untuk membuat jalan
 	double i;
-	const float Z_MIN = -30, Z_MAX = 30;
+	const float Z_MIN = -30, Z_MAX = 70;
 	const float X_MIN = -2.5, X_MAX = -1.5;
 	const float gap = 4; 
 	//Rumput kiri
 	glBegin(GL_POLYGON);
 		glColor3f(0, 0.3, 0);
 		glVertex3f(-39,0.8,-30);
-		glVertex3f(-39,0.8,30);
-		glVertex3f(-9,0.8,30);
+		glVertex3f(-39,0.8,70);
+		glVertex3f(-9,0.8,70);
 		glVertex3f(-9,0.8,-30);
 	glEnd();
 	//Aspal kiri
@@ -120,8 +123,8 @@ void Jalanan() {
 	glBegin(GL_POLYGON);
 		glColor3f(0, 0.3, 0);
 		glVertex3f(6,0.8,-30);
-		glVertex3f(6,0.8,30);
-		glVertex3f(36,0.8,30);
+		glVertex3f(6,0.8,70);
+		glVertex3f(36,0.8,70);
 		glVertex3f(36,0.8,-30);
 	glEnd();	
 }
@@ -140,8 +143,8 @@ void Langit(){
 		glColor3f(0.5, 1, 1.5);
 		glVertex3f(-39,0.8,-30);
 		glVertex3f(-39,50,-30);
-		glVertex3f(-39,50,30);
-		glVertex3f(-39,0.8,30);
+		glVertex3f(-39,50,70);
+		glVertex3f(-39,0.8,70);
 	glEnd();
 }
 
@@ -3118,10 +3121,29 @@ void display() {
 	Pohon();
 	
 	// Gambar objek di sini...
-	Truk();
-	Roda();
+	glPushMatrix();
+		glPushMatrix();
+		glTranslatef(0.0, 0.0, tz);
+		Truk();
+		glPopMatrix();
+		glPushMatrix();
+		glTranslatef(0.0, 0.0, tz);
+		Roda();
+		glPopMatrix();
+	glPopMatrix();
 	glutSwapBuffers();
 	glFlush();
+}
+
+void keyboard(unsigned char key, int x, int y){
+	switch(key){
+		case 'a':
+			tz += 0.5;
+		break;
+		case 'd':
+			tz -= 0.5;
+		break;
+	}
 }
 
 void pressKey(int key, int x, int y) {
@@ -3139,6 +3161,7 @@ void pressKey(int key, int x, int y) {
 		break;
 		case GLUT_KEY_DOWN : 
 			deltaMove = -3;
+		break;
 	}
 }
 
@@ -3204,12 +3227,12 @@ int main(int argc, char **argv){
 	glutInitWindowPosition(100,100);
 	glutInitWindowSize(640,480);
 	glutCreateWindow("3D Truk Gandeng");
-	glutIgnoreKeyRepeat(1); // Mengabaikan key repeat (saat tombol keyboard dipencet terus)
+	glutIgnoreKeyRepeat(0); // Mengabaikan key repeat (saat tombol keyboard dipencet terus)
 	glutSpecialFunc(pressKey);
 	glutSpecialUpFunc(releaseKey);
 	glutDisplayFunc(display);
 	glutIdleFunc(display); // Fungsi display-nya dipanggil terus-menerus
-	
+	glutKeyboardFunc(keyboard);
 	glutReshapeFunc(Reshape);
 	lighting();
 	init();
