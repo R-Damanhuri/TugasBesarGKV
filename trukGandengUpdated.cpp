@@ -126,6 +126,34 @@ void Jalanan() {
 	glEnd();	
 }
 
+void Langit(){
+	//Belakang
+	glBegin(GL_POLYGON);
+		glColor3f(0.0, 1, 1.5);
+		glVertex3f(-39,0.8,-30);
+		glVertex3f(-39,50,-30);
+		glVertex3f(36,50,-30);
+		glVertex3f(36,0.8,-30);
+	glEnd();
+	//Kiri
+	glBegin(GL_POLYGON);
+		glColor3f(0.0, 1, 1.5);
+		glVertex3f(-39,0.8,-30);
+		glVertex3f(-39,50,-30);
+		glVertex3f(-39,50,30);
+		glVertex3f(-39,0.8,30);
+	glEnd();
+	//Kanan
+	glBegin(GL_POLYGON);
+		glColor3f(0.0, 1, 1.5);
+		glVertex3f(36,0.8,-30);
+		glVertex3f(36,50,-30);
+		glVertex3f(36,50,30);
+		glVertex3f(36,0.8,30);
+	glEnd();
+
+}
+
 void Pos()
 {
 glPushMatrix();
