@@ -1,4 +1,4 @@
-//Nama	: R. Damanhuri
+///Nama	: R. Damanhuri
 //NIM	: 24060120130072
 //Lab	: A2
 //Waktu	: 21 Maret 2022
@@ -9,8 +9,8 @@
 #include <string.h>
 #include <stdlib.h>
 float angle=0.0, deltaAngle = 0.0, ratio;
-float x=-2.0f,y=1.75f,z=35.0f; // posisi awal kamera
-float lx=0.0f,ly=0.0f,lz=-1.0f;
+float x=60.0f, y=50.0f, z=20.0f; // posisi awal kamera
+float lx=-1.0f,ly=-0.6f,lz=0.0f;
 int deltaMove = 0,h,w;
 int bitmapHeight=12;
 void Reshape(int w1, int h1){
@@ -129,7 +129,7 @@ void Jalanan() {
 void Langit(){
 	//Belakang
 	glBegin(GL_POLYGON);
-		glColor3f(0.0, 1, 1.5);
+		glColor3f(0.5, 1, 1.5);
 		glVertex3f(-39,0.8,-30);
 		glVertex3f(-39,50,-30);
 		glVertex3f(36,50,-30);
@@ -137,21 +137,12 @@ void Langit(){
 	glEnd();
 	//Kiri
 	glBegin(GL_POLYGON);
-		glColor3f(0.0, 1, 1.5);
+		glColor3f(0.5, 1, 1.5);
 		glVertex3f(-39,0.8,-30);
 		glVertex3f(-39,50,-30);
 		glVertex3f(-39,50,30);
 		glVertex3f(-39,0.8,30);
 	glEnd();
-	//Kanan
-	glBegin(GL_POLYGON);
-		glColor3f(0.0, 1, 1.5);
-		glVertex3f(36,0.8,-30);
-		glVertex3f(36,50,-30);
-		glVertex3f(36,50,30);
-		glVertex3f(36,0.8,30);
-	glEnd();
-
 }
 
 void Pos()
@@ -221,10 +212,6 @@ void Palang()
 			glutSolidCube(1);
 		glPopMatrix();
 	glPopMatrix();
-		
-		
-		
-		
 }
 
 void rumah()
@@ -2896,33 +2883,214 @@ void Roda(){
 	glPopMatrix();
 }
 
+void Pohon(){
+	// Pohon 1
+	glPushMatrix();
+	glTranslatef(16.0, 1.0, -12.0);
+	
+		// Batang
+		glPushMatrix();
+			glColor3ub(122, 61, 23);
+			glRotated(270, 1, 0, 0);
+			glTranslatef(5, -10, 0);
+			gluCylinder(gluNewQuadric(), 1.5, 0.5, 9.5, 25, 25);
+		glPopMatrix();
+	
+		// Daun
+		glPushMatrix();
+			glColor3ub(25, 148, 19);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 6.2, 2.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(18, 118, 13);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 1.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(30, 130, 25);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 3.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		
+	glPopMatrix();
+		
+	// Pohon 2
+	glPushMatrix();
+	glTranslatef(12.0, 1.0, -20.0);
+	
+		// Batang
+		glPushMatrix();
+			glColor3ub(122, 61, 23);
+			glRotated(270, 1, 0, 0);
+			glTranslatef(5, -10, 0);
+			gluCylinder(gluNewQuadric(), 1.5, 0.5, 9.5, 25, 25);
+		glPopMatrix();
+	
+		// Daun
+		glPushMatrix();
+			glColor3ub(25, 148, 19);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 6.2, 2.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(18, 118, 13);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 1.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(30, 130, 25);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 3.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		
+	glPopMatrix();
+		
+	// Pohon 3
+	glPushMatrix();
+	glTranslatef(-25.5, 1.0, -22.0);
+	
+		// Batang
+		glPushMatrix();
+			glColor3ub(122, 61, 23);
+			glRotated(270, 1, 0, 0);
+			glTranslatef(5, -10, 0);
+			gluCylinder(gluNewQuadric(), 1.5, 0.5, 9.5, 25, 25);
+		glPopMatrix();
+	
+		// Daun
+		glPushMatrix();
+			glColor3ub(25, 148, 19);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 6.2, 2.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(18, 118, 13);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 1.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(30, 130, 25);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 3.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		
+	glPopMatrix();
+	
+	// Pohon 4
+	glPushMatrix();
+	glTranslatef(-25.5, 0.5, -5.5);
+	
+		// Batang
+		glPushMatrix();
+			glColor3ub(122, 61, 23);
+			glRotated(270, 1, 0, 0);
+			glTranslatef(5, -10, 0);
+			gluCylinder(gluNewQuadric(), 1.5, 0.5, 9.5, 25, 25);
+		glPopMatrix();
+	
+		// Daun
+		glPushMatrix();
+			glColor3ub(25, 148, 19);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 6.2, 2.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(18, 118, 13);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 1.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		glPushMatrix();
+			glColor3ub(30, 130, 25);
+			glScaled(2, 2, 2);
+			glRotated(90, 0, 1, 0);
+			glTranslatef(-5, 5.2, 3.5);
+			glutSolidDodecahedron();
+		glPopMatrix();
+		
+	glPopMatrix();
+}
+
 void Awan(){
 	//Awan 1
 	glPushMatrix();
-		glTranslatef(-20, 20, 5);
+		glTranslatef(-25, 25, 5);
 		glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
 		glColor3ub(153, 223, 255);
 		glutSolidSphere(3, 50, 50);
 	glPopMatrix();
 	
 	glPushMatrix();
-		glTranslatef(-20, 20, 2);
+		glTranslatef(-25, 25, 2);
 		glutSolidSphere(2, 50, 50);
 	glPopMatrix();
 	
 	glPushMatrix();
-		glTranslatef(-20, 20, 8);
+		glTranslatef(-25, 25, 8);
 		glutSolidSphere(2, 50, 50);
 	glPopMatrix();
 	
 	glPushMatrix();
-		glTranslatef(-20, 20, 0);
+		glTranslatef(-25, 25, 0);
 		glutSolidSphere(1, 50, 50);
 	glPopMatrix();
 	
 	glPushMatrix();
-		glTranslatef(-20, 20, 10);
+		glTranslatef(-25, 25, 10);
 		glutSolidSphere(1, 50, 50);
+	glPopMatrix();
+	
+	//Awan 2
+	glPushMatrix();
+	glTranslatef(0.0, 0.0, -15.0);
+	glPushMatrix();
+		glTranslatef(-25, 25, 5);
+		glColorMaterial(GL_FRONT_AND_BACK, GL_AMBIENT_AND_DIFFUSE);
+		glColor3ub(153, 223, 255);
+		glutSolidSphere(3, 50, 50);
+	glPopMatrix();
+	
+	glPushMatrix();
+		glTranslatef(-25, 25, 2);
+		glutSolidSphere(2, 50, 50);
+	glPopMatrix();
+	
+	glPushMatrix();
+		glTranslatef(-25, 25, 8);
+		glutSolidSphere(2, 50, 50);
+	glPopMatrix();
+	
+	glPushMatrix();
+		glTranslatef(-25, 25, 0);
+		glutSolidSphere(1, 50, 50);
+	glPopMatrix();
+	
+	glPushMatrix();
+		glTranslatef(-25, 25, 10);
+		glutSolidSphere(1, 50, 50);
+	glPopMatrix();
 	glPopMatrix();
 }
 
@@ -2939,7 +3107,7 @@ void display() {
 	//Gambar environtment
 	Jalanan();
 	Awan();
-	//Langit();
+	Langit();
 	rumah();
 	rumah2();
 	rumah3();
@@ -2947,6 +3115,7 @@ void display() {
 	rumah5kanan();
 	Pos();
 	Palang();
+	Pohon();
 	
 	// Gambar objek di sini...
 	Truk();
@@ -2954,6 +3123,7 @@ void display() {
 	glutSwapBuffers();
 	glFlush();
 }
+
 void pressKey(int key, int x, int y) {
 // Fungsi ini akan dijalankan saat tombol keyboard ditekan dan belum dilepas
 // Selama tombol ditekan, variabel angle dan move diubah => kamera bergerak
@@ -2969,7 +3139,6 @@ void pressKey(int key, int x, int y) {
 		break;
 		case GLUT_KEY_DOWN : 
 			deltaMove = -3;
-		break;
 	}
 }
 
@@ -2995,6 +3164,7 @@ void releaseKey(int key, int x, int y) {
 			break;
 	}
 }
+
 // Variable untuk pencahayaan
 const GLfloat light_ambient[] = { 0.5f, 0.5f, 0.5f, 0.0f };
 const GLfloat light_diffuse[] = { 1.0f, 1.0f, 1.0f, 1.0f };
@@ -3046,4 +3216,3 @@ int main(int argc, char **argv){
 	glutMainLoop();
 	return(0);
 }
-
