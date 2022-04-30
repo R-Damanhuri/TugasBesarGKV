@@ -11,12 +11,12 @@
 float angle = 0.0, deltaAngle = 0.0, ratio;
 float x = 60.0f, y = 50.0f, z = 20.0f; // Posisi awal kamera
 float lx = -1.0f, ly = -0.6f, lz = 0.0f;
-float tz = -30.0f;
+float tz = -30;
 float posisi = 0.0f;
 int isNaik = 0;
-float y_palang = 2.5f;
 int deltaMove = 0, h, w;
 int bitmapHeight = 12;
+static int sendiPalang = 0;
 
 void Reshape(int w1, int h1){
 // Fungsi reshape
@@ -42,7 +42,7 @@ void orientMe(float ang){
 	lz = -cos(ang);
 	glLoadIdentity();
 	gluLookAt(x, y, z,
-	x + lx,y + ly,z + lz,
+	x + lx,y + y,z + lz,
 	0.0f, 1.0f, 0.0f);
 }
 
@@ -152,7 +152,7 @@ void Langit(){
 
 void Pos(){
 glPushMatrix();
-glTranslatef(-4,0.8,25.7);
+glTranslatef(-6,0.8,25.7);
 
 		// Lantai
 		glPushMatrix();
@@ -198,12 +198,13 @@ glTranslatef(-4,0.8,25.7);
 
 void Palang(){
 	glPushMatrix();
-	glTranslatef(-3,0.8,29);
-		
+	glTranslatef(-3,0.8,30);
 		// Horizontal
 		glPushMatrix();
+			glTranslatef (-6.5, 2.5, 0.0); 
+			glRotatef ((GLfloat) sendiPalang, 0.0, 0.0, 1.0);
+			glTranslatef (7, 0.0, 0.0); 
 			glColor3f(1, 0.5, 0);
-			glTranslatef(0, y_palang, 0);
 			glScalef(15, 0.5, 0.5);
 			glutSolidCube(1);
 		glPopMatrix();
@@ -3785,27 +3786,41 @@ void display() {
 void keyboard(unsigned char key, int x, int y){
 	switch(key){
 		case 'a':
-			if (isNaik == 0){
-				if (y_palang == 2.5){
+			if(isNaik == 0){
+				if(tz != 5){
 					tz += 0.5;
 				}
-				else {
-					tz = tz;
-				}
 			}
-			else {
+			else{ //isNaik == 1
 				tz += 0.5;
 			}
 		break;
 		case 'd':
-			tz -= 0.5;
+			if(isNaik == 0){
+				if(tz != 28){
+					tz -= 0.5;
+				}
+			}
+			else{
+				tz -= 0.5;
+			}
 		break;
 		case 'n':
-			isNaik = 1;
+			isNaik = 0;
+			if(sendiPalang >= 0){
+				sendiPalang = (sendiPalang - 5) % 360;
+			}
 		break;
 		case 'm':
-			isNaik = 0;
+			isNaik = 1;
+			if(sendiPalang <= 90){
+				sendiPalang = (sendiPalang + 5) % 360;
+			}
 		break;
+		case 27: exit(0);
+		break; 
+		default: break; 
+
 	}
 }
 
