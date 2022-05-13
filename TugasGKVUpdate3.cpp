@@ -8,7 +8,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
-float angle = 0.0, deltaAngle = 0.0, ratio;
+float angle = -1.55, deltaAngle = 0.0, ratio;
 float x = 60.0f, y = 50.0f, z = 20.0f; // Posisi awal kamera
 float lx = -1.0f, ly = -0.6f, lz = 0.0f;
 float tz = -30;
