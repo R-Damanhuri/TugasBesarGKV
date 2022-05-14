@@ -1,8 +1,3 @@
-//Nama	: R. Damanhuri
-//NIM	: 24060120130072
-//Lab	: A2
-//Waktu	: 21 Maret 2022
-
 #include <math.h>
 #include <GL/glut.h>
 #include <stdio.h>
