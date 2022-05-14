@@ -3805,16 +3805,23 @@ void keyboard(unsigned char key, int x, int y){
 				tz -= 0.5;
 			}
 		break;
-		case 'n':
-			isNaik = 0;
+		case 'n':		
 			if(sendiPalang >= 0){
 				sendiPalang = (sendiPalang - 5) % 360;
 			}
+			if(sendiPalang == 25){
+				isNaik = 1;
+			}
+			else{
+				isNaik = 0;
+			}
 		break;
 		case 'm':
-			isNaik = 1;
 			if(sendiPalang <= 90){
 				sendiPalang = (sendiPalang + 5) % 360;
+			}
+			if(sendiPalang == 25){
+				isNaik = 1;
 			}
 		break;
 		case 27: exit(0);
